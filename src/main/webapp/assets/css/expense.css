@@ -1,0 +1,184 @@
+/* ==============================
+   Expense Detail Page (Tone match with customerStat.css)
+   ============================== */
+
+/* ===== BODY ===== */
+body {
+    font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: #f4f6f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    line-height: 1.5;
+}
+
+/* ===== CONTAINER ===== */
+.container {
+    width: 85%;
+    max-width: 1000px;
+    margin: 50px auto;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    padding: 30px 40px;
+}
+
+/* ===== HEADER ===== */
+h1 {
+    text-align: center;
+    color: #222;
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 25px;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 10px;
+}
+
+/* ===== CUSTOMER INFO ===== */
+.customer-info {
+    background-color: #f1f7ff;
+    border: 1px solid #d6e4ff;
+    border-radius: 10px;
+    padding: 15px 20px;
+    margin-bottom: 25px;
+    text-align: center;
+    font-size: 1rem;
+    color: #004085;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+}
+
+/* ===== TABLE ===== */
+.expense-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+    color: #333;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.expense-table th {
+    background-color: #007bff;
+    color: #fff;
+    text-align: center;
+    padding: 12px;
+    font-weight: 500;
+}
+
+.expense-table td {
+    text-align: center;
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* THÊM MỚI: Điều chỉnh độ rộng cột */
+.expense-table th:nth-child(1), .expense-table td:nth-child(1) { width: 5%; }  /* No */
+.expense-table th:nth-child(2), .expense-table td:nth-child(2) { width: 15%; } /* Invoice ID */
+.expense-table th:nth-child(3), .expense-table td:nth-child(3) { width: 20%; } /* Date */
+.expense-table th:nth-child(4), .expense-table td:nth-child(4) { width: 15%; } /* Total Item */
+.expense-table th:nth-child(5), .expense-table td:nth-child(5) { width: 20%; text-align: right; } /* Total Amount (VND) - Giảm độ rộng, giữ căn phải */
+.expense-table th:nth-child(6), .expense-table td:nth-child(6) { width: 25%; text-align: center; } /* Action */
+
+
+.expense-table tr:nth-child(even) {
+    background-color: #f9fbff;
+}
+
+.expense-table tr:hover {
+    background-color: #f1f7ff;
+}
+
+/* ===== NÚT VIEW DETAIL (Tương tự btn-edit) ===== */
+.btn-view-detail {
+    display: inline-block;
+    text-decoration: none;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s;
+    font-size: 0.9rem;
+    background-color: #28a745; /* Màu xanh lá */
+    color: white;
+}
+
+.btn-view-detail:hover {
+    background-color: #1e7e34;
+    transform: translateY(-1px);
+}
+
+
+/* ===== FOOTER (TOTAL) ===== */
+tfoot td.right {
+    text-align: right;
+    font-weight: bold;
+    background-color: #f1f7ff;
+    border-top: 2px solid #007bff;
+}
+
+tfoot td.highlight {
+    font-weight: bold;
+    color: #007bff;
+    background-color: #e6f0ff;
+    border-top: 2px solid #007bff;
+}
+
+/* TỔNG KẾT: Căn lề phải cho ô tổng cuối cùng */
+tfoot td.highlight.money-column {
+    text-align: right;
+}
+
+/* THÊM MỚI: Căn chỉnh ô "Total Revenue" ở footer để nó rộng bằng 3 cột đầu tiên */
+tfoot tr td:first-child { /* Ô td đầu tiên của tfoot */
+    text-align: right;
+    padding-right: 16px; /* Để tạo khoảng cách với Total Amount */
+    /* Không cần width cụ thể vì colspan sẽ tự điều chỉnh */
+}
+
+
+/* ===== BACK BUTTON ===== */
+form {
+    text-align: center;
+    margin-top: 25px;
+}
+
+.back-button {
+    padding: 8px 22px;
+    border: none;
+    background-color: #6c757d;
+    color: #fff;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s;
+}
+
+.back-button:hover {
+    background-color: #565e64;
+    transform: translateY(-1px);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+
+    .expense-table th,
+    .expense-table td {
+        padding: 10px;
+    }
+
+    .back-button {
+        width: 100%;
+        text-align: center;
+    }
+
+    .expense-table th:nth-child(1), .expense-table td:nth-child(1) { width: 8%; }
+    .expense-table th:nth-child(2), .expense-table td:nth-child(2) { width: 18%; }
+    .expense-table th:nth-child(3), .expense-table td:nth-child(3) { width: 20%; }
+    .expense-table th:nth-child(4), .expense-table td:nth-child(4) { width: 15%; }
+    .expense-table th:nth-child(5), .expense-table td:nth-child(5) { width: 20%; }
+    .expense-table th:nth-child(6), .expense-table td:nth-child(6) { width: 19%; }
+}
